@@ -267,7 +267,7 @@
                     If ($FilePrefix -eq "P01") {If (($Line -like "*receiver*")) {$TPut = $Line.Substring(38,17).Trim()} #End If
                     }
                     Else {
-                        If (($Line -like "*SUM*" -and $Line -like "*receiver*")) {$TPut = $Line.Substring(38,17).Trim()} #End If
+                        If (($Line -like "*SUM*" -and $Line -like "*receiver*")) {$TPut = $Line.Substring(37,17).Trim()} #End If
                     } # End Else
                 } # End For
             } # End Try
