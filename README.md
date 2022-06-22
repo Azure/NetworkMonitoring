@@ -10,12 +10,8 @@ The Azure Connectivity Toolkit ([AzureCT][AzureCT]) is a PowerShell module and c
  - A network availability test (Get-AzureNetworkAvailability) that runs pings and traceroutes over an extended period of time to show end to end availability and hop latency.
  - A bandwidth and latency tester (Get-LinkPerformance) that runs a series of iPerf3 load tests while concurently doing a TCP ping to show latency under various loads.
 
-#### LogConverter
-[LogConverter][LogConverter] contains code for downloading operational network logs and converting them to .CSV files. Files can then be uploaded to Power BI for analysis.
-
 <!--Image References-->
 [0]: ./AzureCT/media/AzureNMT.png "Azure Network Monitoring Tools"
 
 <!--Link References-->
-[LogConverter]: https://github.com/Azure/NetworkMonitoring/tree/master/LogConverter "LogConverter tree"
 [AzureCT]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT "AzureCT tree"
