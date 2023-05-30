@@ -80,7 +80,7 @@
     $ToolPath = "C:\ACTTools\"
     $GitHubURL = "https://raw.githubusercontent.com/tracsman/NetworkMonitoring/LinkPerf/AzureCT/PowerShell/AzureCT/Public/"
     $PSPingURL = "https://live.sysinternals.com/psping.exe"
-    $iPerf3URL = "https://iperf.fr/download/windows/iperf-3.1.3-win64.zip"
+    $iPerf3URL = "https://files.budman.pw/iperf3.13_64.zip"
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
     # 3. Create C:\ACTTools dir
@@ -91,7 +91,7 @@
     # Yes I know I should make the file pull (and other things) a callable function, but lazy is ok sometimes
     If (-Not (Test-Path $ToolPath"iperf3.exe") -or -Not (Test-Path $ToolPath"cygwin1.dll")){
         # 4.1 If either are needed, download, extract
-        $File = $ToolPath + "iperf-3.1.3-win64.zip"
+        $File = $ToolPath + "iperf3.13_64.zip"
         Try {
             $webClient = new-object System.Net.WebClient
             $webClient.DownloadFile($iPerf3URL, $File)
