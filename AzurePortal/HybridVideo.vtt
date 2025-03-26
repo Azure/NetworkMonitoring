@@ -1,0 +1,508 @@
+WEBVTT - https://maestrasuite.com
+
+0
+00:00:00.880 --> 00:00:03.969
+A few months ago, we changed
+our public documentation to
+
+1
+00:00:03.980 --> 00:00:06.609
+organize the Azure networking
+services and features
+
+2
+00:00:06.620 --> 00:00:07.599
+into four pillars.
+
+3
+00:00:08.000 --> 00:00:10.169
+I'm here to talk to you
+about the hybrid connectivity
+
+4
+00:00:10.180 --> 00:00:12.859
+pillar, which is also
+reflected in the Azure portal.
+
+5
+00:00:13.500 --> 00:00:15.589
+When I say hybrid
+connectivity, I mean getting
+
+6
+00:00:15.600 --> 00:00:19.068
+from the physical world,
+on-prem or from a device like
+
+7
+00:00:19.080 --> 00:00:22.599
+a cell phone or a laptop,
+into resources in Azure.
+
+8
+00:00:23.400 --> 00:00:26.179
+First, let's look at
+the Azure VPN service.
+
+9
+00:00:28.200 --> 00:00:31.289
+VPN gateway is a collection
+of objects in Azure working
+
+10
+00:00:31.300 --> 00:00:34.849
+together to enable an IPsec
+or TLS tunnel to Azure
+
+11
+00:00:34.860 --> 00:00:35.919
+across the Internet.
+
+12
+00:00:36.180 --> 00:00:38.989
+This is done in one of two
+ways, with site-to-site
+
+13
+00:00:39.000 --> 00:00:41.409
+tunnels starting at your
+on-premise location with
+
+14
+00:00:41.420 --> 00:00:44.569
+a physical device like a
+router or firewall, or a
+
+15
+00:00:44.580 --> 00:00:46.749
+point-to-site connection
+from your mobile device
+
+16
+00:00:46.760 --> 00:00:49.629
+like a cell phone, tablet,
+laptop, or other supported
+
+17
+00:00:49.640 --> 00:00:50.959
+Internet connected devices.
+
+18
+00:00:51.280 --> 00:00:53.929
+For both point-to-site and
+site-to-site, you start
+
+19
+00:00:53.940 --> 00:00:57.019
+with a VPN gateway connected
+to your Azure VNet.
+
+20
+00:00:57.720 --> 00:00:59.819
+With point-to-site, a client
+application or client config,
+
+21
+00:00:59.830 --> 00:00:59.919
+is installed on the device
+and is connected securely
+
+22
+00:00:59.930 --> 00:00:59.959
+to the VPN gateway.
+
+23
+00:01:06.890 --> 00:01:10.338
+For a site-to-site connection,
+a local network gateway object
+
+24
+00:01:10.350 --> 00:01:13.299
+is created that represents
+the IP address of the on-prem
+
+25
+00:01:13.310 --> 00:01:16.519
+device and then a connection
+object is created to join
+
+26
+00:01:16.530 --> 00:01:19.429
+the local network gateway
+to the VPN gateway.
+
+27
+00:01:19.650 --> 00:01:23.209
+This establishes the secure
+tunnel through the Internet.
+
+28
+00:01:25.430 --> 00:01:28.149
+Next, we look at the
+ExpressRoute service.
+
+29
+00:01:29.820 --> 00:01:33.088
+Like VPN, ExpressRoute is
+about getting connectivity
+
+30
+00:01:33.100 --> 00:01:35.529
+from your premise
+to Microsoft, but in
+
+31
+00:01:35.540 --> 00:01:37.849
+ExpressRoute's case,
+doing this by not
+
+32
+00:01:37.860 --> 00:01:38.659
+using the internet.
+
+33
+00:01:39.360 --> 00:01:41.368
+Most customers work with
+a service provider like
+
+34
+00:01:41.380 --> 00:01:44.948
+AT &T or any of our over
+200 ExpressRoute partners
+
+35
+00:01:44.960 --> 00:01:47.669
+to provide a private,
+non-internet path to
+
+36
+00:01:47.680 --> 00:01:48.499
+Microsoft's network.
+
+37
+00:01:49.040 --> 00:01:51.109
+Once connected with an
+ExpressRoute circuit, you
+
+38
+00:01:51.120 --> 00:01:54.519
+can go to Microsoft public
+and Azure public services
+
+39
+00:01:54.530 --> 00:01:57.219
+like SQL Server, Azure
+Storage, Dynamics, or
+
+40
+00:01:57.230 --> 00:01:58.769
+in some cases, M365.
+
+41
+00:01:58.930 --> 00:02:01.879
+This is done using public
+IP addresses over Microsoft
+
+42
+00:02:01.890 --> 00:02:04.649
+Peering, the orange
+lines in this diagram.
+
+43
+00:02:05.150 --> 00:02:07.558
+In this scenario, you would
+also use a route filter
+
+44
+00:02:07.570 --> 00:02:10.759
+feature to reduce the BGP
+overhead to only receive
+
+45
+00:02:10.770 --> 00:02:13.279
+the specific address
+ranges for the regions
+
+46
+00:02:13.290 --> 00:02:14.429
+or services you need.
+
+47
+00:02:14.650 --> 00:02:17.349
+However, most commonly
+used is private peering.
+
+48
+00:02:17.650 --> 00:02:19.479
+This is the blue box
+in the lower right-hand
+
+49
+00:02:19.490 --> 00:02:20.349
+corner of the diagram.
+
+50
+00:02:20.890 --> 00:02:23.839
+Using an ExpressRoute gateway
+on the VNet and a connection
+
+51
+00:02:23.850 --> 00:02:26.259
+object between the circuit
+and the gateway allows you
+
+52
+00:02:26.270 --> 00:02:29.039
+to extend your corporate
+on-premise private network
+
+53
+00:02:29.050 --> 00:02:32.659
+into Azure and access your
+Azure resources directly
+
+54
+00:02:32.670 --> 00:02:34.289
+on this private data path.
+
+55
+00:02:34.450 --> 00:02:36.389
+Again, not using the Internet.
+
+56
+00:02:37.350 --> 00:02:39.439
+ExpressRoute enables you to
+connect multiple ExpressRoute
+
+57
+00:02:39.450 --> 00:02:41.969
+gateways in the same or
+different regions back
+
+58
+00:02:41.980 --> 00:02:42.739
+to the same circuit.
+
+59
+00:02:42.920 --> 00:02:45.249
+For our largest premium
+ExpressRoute circuit,
+
+60
+00:02:45.260 --> 00:02:48.189
+that could be up to 100
+ExpressRoute gateways in any
+
+61
+00:02:48.200 --> 00:02:51.279
+region in the world back to
+the same ExpressRoute circuit.
+
+62
+00:02:51.840 --> 00:02:54.849
+There's also an ExpressRoute
+direct port option, which
+
+63
+00:02:54.860 --> 00:02:57.259
+would replace the partner
+edge in the diagram.
+
+64
+00:02:57.800 --> 00:03:01.409
+This allows you to connect
+your edge router directly to
+
+65
+00:03:01.420 --> 00:03:05.229
+the Microsoft routers in a
+facility for direct connection
+
+66
+00:03:05.240 --> 00:03:06.599
+to the Microsoft network.
+
+67
+00:03:07.340 --> 00:03:10.429
+Also, for monitoring, we
+offer the ExpressRoute
+
+68
+00:03:10.440 --> 00:03:11.279
+Traffic Collector.
+
+69
+00:03:11.720 --> 00:03:14.169
+This feature can provide
+detailed flow data on your
+
+70
+00:03:14.180 --> 00:03:16.549
+circuits to be able to
+identify things like top
+
+71
+00:03:16.560 --> 00:03:19.639
+talkers or other traffic-based
+metrics and queries.
+
+72
+00:03:21.720 --> 00:03:23.809
+The final service I'll
+cover in the hybrid
+
+73
+00:03:23.820 --> 00:03:26.639
+connectivity pillar is
+our virtual WAN service.
+
+74
+00:03:28.970 --> 00:03:33.419
+As the diagram shows, Virtual
+WAN, also called vWAN, brings
+
+75
+00:03:33.430 --> 00:03:36.979
+together all of the features
+of ExpressRoute and VPN,
+
+76
+00:03:36.990 --> 00:03:39.539
+and then extends them for
+any-to-any connectivity
+
+77
+00:03:39.550 --> 00:03:41.789
+into and across Azure.
+
+78
+00:03:42.150 --> 00:03:44.879
+If you're familiar with a
+hub-and-spoke architecture,
+
+79
+00:03:44.890 --> 00:03:47.999
+a Virtual WAN implements this
+in a concise, single-object
+
+80
+00:03:48.010 --> 00:03:50.499
+structure to implement the
+hub-and-spoke scaffolding
+
+81
+00:03:50.510 --> 00:03:52.629
+much faster than you
+could build yourself.
+
+82
+00:03:52.840 --> 00:03:56.569
+If you use a vWAN-aware
+SDN hardware device on
+
+83
+00:03:56.580 --> 00:03:59.579
+your premise, you get
+large-scale VPN automation.
+
+84
+00:04:00.080 --> 00:04:02.489
+Just log into your on-prem
+device with your Azure
+
+85
+00:04:02.500 --> 00:04:05.589
+credentials, and it can
+auto-configure the device and
+
+86
+00:04:05.600 --> 00:04:08.819
+establish the IPsec connection
+back to your vWAN hub.
+
+87
+00:04:09.320 --> 00:04:11.629
+This is great if you
+have many branch offices
+
+88
+00:04:11.640 --> 00:04:14.929
+or retail outlets that
+need VPN connections to
+
+89
+00:04:14.940 --> 00:04:15.939
+your Azure workloads.
+
+90
+00:04:16.279 --> 00:04:20.069
+vWAN also integrates with
+Azure Firewall, but not just
+
+91
+00:04:20.079 --> 00:04:23.689
+Azure's firewall, but also
+to other popular firewalls
+
+92
+00:04:23.700 --> 00:04:26.449
+from the marketplace to turn
+your regular vWAN hub into
+
+93
+00:04:26.460 --> 00:04:28.299
+what we call a secure hub.
+
+94
+00:04:28.660 --> 00:04:31.409
+This allows you to use the
+firewall of your choice and
+
+95
+00:04:31.420 --> 00:04:34.459
+your unique security policies
+to make your WAN secure.
+
+96
+00:04:35.320 --> 00:04:37.749
+vWAN introduces many other
+routing features like route
+
+97
+00:04:37.760 --> 00:04:40.849
+maps, routing intent, and
+others to manage the flows
+
+98
+00:04:40.860 --> 00:04:42.339
+across the virtual WAN.
+
+99
+00:04:43.000 --> 00:04:47.009
+All of this together allows
+you to enable, secure, and
+
+100
+00:04:47.020 --> 00:04:50.489
+control your network traffic,
+making the Microsoft backbone
+
+101
+00:04:50.500 --> 00:04:52.859
+and Azure your corporate WAN.
+
+102
+00:04:54.800 --> 00:04:57.169
+Hopefully this provides
+some insight into the
+
+103
+00:04:57.180 --> 00:05:00.349
+three main services in our
+hybrid connectivity pillar,
+
+104
+00:05:00.360 --> 00:05:03.379
+Azure VPN, ExpressRoute,
+and Virtual WAN.
+
